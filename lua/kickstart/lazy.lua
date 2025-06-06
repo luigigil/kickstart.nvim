@@ -133,8 +133,10 @@ require('lazy').setup({
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
         { '<leader>g', group = '[G]it' },
-        { '<leader>a', group = '[A]vante' },
-        -- { '<leader>f', group = 'Harpoon [F]ile' },
+        { '<leader>f', group = 'Harpoon [F]ile' },
+        { '<leader>b', group = '[B]reakpoints' },
+        { '<leader>x', group = 'Trouble/Diagnosti[x]' },
+        { '<leader>u', group = '[U]tilities' },
       },
     },
   },
@@ -584,12 +586,12 @@ require('lazy').setup({
     cmd = { 'ConformInfo' },
     keys = {
       {
-        '<leader>f',
+        '<leader>cf',
         function()
           require('conform').format { async = true, lsp_format = 'fallback' }
         end,
         mode = '',
-        desc = '[F]ormat buffer',
+        desc = '[C]ode [F]ormat buffer',
       },
     },
     opts = {
@@ -819,7 +821,7 @@ require('lazy').setup({
   require 'kickstart.plugins.debug',
   require 'kickstart.plugins.fugitive',
   require 'kickstart.plugins.gitsigns',
-  -- require 'kickstart.plugins.harpoon',
+  require 'kickstart.plugins.harpoon',
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lazygit',
   require 'kickstart.plugins.lint',
