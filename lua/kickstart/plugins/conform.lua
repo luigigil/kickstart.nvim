@@ -1,15 +1,15 @@
 return { -- Autoformat
-  "stevearc/conform.nvim",
-  event = { "BufWritePre" },
-  cmd = { "ConformInfo" },
+  'stevearc/conform.nvim',
+  event = { 'BufWritePre' },
+  cmd = { 'ConformInfo' },
   keys = {
     {
-      "<leader>f",
+      '<leader>f',
       function()
-        require("conform").format({ async = true, lsp_format = "fallback" })
+        require('conform').format { async = true, lsp_format = 'fallback' }
       end,
-      mode = "",
-      desc = "[F]ormat buffer",
+      mode = '',
+      desc = '[F]ormat buffer',
     },
   },
   opts = {
@@ -21,9 +21,9 @@ return { -- Autoformat
       local disable_filetypes = { c = true, cpp = true }
       local lsp_format_opt
       if disable_filetypes[vim.bo[bufnr].filetype] then
-        lsp_format_opt = "never"
+        lsp_format_opt = 'never'
       else
-        lsp_format_opt = "fallback"
+        lsp_format_opt = 'never'
       end
       return {
         timeout_ms = 500,
@@ -31,8 +31,8 @@ return { -- Autoformat
       }
     end,
     formatters_by_ft = {
-      lua = { "stylua" },
-      markdown = { "prettier" },
+      lua = { 'stylua' },
+      markdown = { 'prettier' },
       -- Conform can also run multiple formatters sequentially
       -- python = { "isort", "black" },
       --
@@ -44,18 +44,19 @@ return { -- Autoformat
         options = {
           -- Configure prettier's line width to 80 chars for markdown
           ft_parsers = {
-            markdown = { "markdown" },
+            markdown = { 'markdown' },
           },
           args = {
-            "--stdin-filepath",
-            "$FILENAME",
-            "--prose-wrap",
-            "always",
-            "--print-width",
-            "80",
+            '--stdin-filepath',
+            '$FILENAME',
+            '--prose-wrap',
+            'always',
+            '--print-width',
+            '80',
           },
         },
       },
     },
   },
 }
+

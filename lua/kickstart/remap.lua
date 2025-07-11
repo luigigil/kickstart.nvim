@@ -27,7 +27,6 @@ vim.keymap.set('n', '<leader>y', [["+Y]])
 vim.keymap.set('n', '<C-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>')
 
 vim.keymap.set('n', '<leader>uv', vim.cmd.Oil) -- opens oil
--- vim.keymap.set("n", "<leader>uv", vim.cmd.Ex) -- opens file explorer
 
 vim.keymap.set('n', 'grs', function()
   vim.api.nvim_command 'vsplit'
