@@ -3,8 +3,10 @@ return {
   lazy = false, -- Recommended
   ft = { 'markdown', 'norg', 'rmd', 'org', 'vimwiki', 'Avante' },
 
+  -- For `nvim-treesitter` users.
+  priority = 49,
+
   dependencies = {
-    -- "nvim-treesitter/nvim-treesitter",
     'nvim-tree/nvim-web-devicons',
     'saghen/blink.cmp',
   },
