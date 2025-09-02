@@ -16,4 +16,22 @@ return {
     },
     max_length = 99999,
   },
+  keys = {
+    {
+      '<leader>mt',
+      function()
+        require('markview').commands['toggle']()
+      end,
+      mode = 'n',
+      desc = '[M]arkview toggle',
+    },
+    {
+      '<leader>ms',
+      function()
+        require('markview').commands['splitToggle']()
+      end,
+      mode = 'n',
+      desc = '[M]arkview [s]plit toggle',
+    },
+  },
 }
