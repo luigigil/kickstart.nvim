@@ -820,9 +820,7 @@ require('lazy').setup({
   -- NOTE: Next step on your Neovim journey: Add/Configure additional plugins for Kickstart
   --
   require 'kickstart.plugins.autopairs',
-  require 'kickstart.plugins.codecompanion',
   require 'kickstart.plugins.conform',
-  require 'kickstart.plugins.d2',
   require 'kickstart.plugins.debug',
   require 'kickstart.plugins.fugitive',
   require 'kickstart.plugins.gitsigns',
@@ -832,7 +830,6 @@ require('lazy').setup({
   require 'kickstart.plugins.lualine',
   require 'kickstart.plugins.markdown-preview',
   require 'kickstart.plugins.markview',
-  require 'kickstart.plugins.mcphub',
   require 'kickstart.plugins.nvim-dap-ui',
   require 'kickstart.plugins.octo',
   require 'kickstart.plugins.octo-custom',
