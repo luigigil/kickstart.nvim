@@ -1,7 +1,7 @@
 return {
   'octo.custom.nvim',
   dir = vim.fn.stdpath 'config' .. '/lua/custom/plugins/octo.custom.nvim',
-  cond = vim.env.WORK == 1,
+  cond = vim.env.WORK == '1',
   dependencies = {
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope.nvim',

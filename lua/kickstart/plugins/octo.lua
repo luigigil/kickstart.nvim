@@ -1,6 +1,6 @@
 return {
   'pwntester/octo.nvim',
-  cond = vim.env.WORK ~= 1,
+  cond = vim.env.WORK ~= '1',
   requires = {
     'nvim-lua/plenary.nvim',
     'nvim-telescope/telescope.nvim',
