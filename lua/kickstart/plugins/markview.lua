@@ -7,6 +7,18 @@ return {
   priority = 49,
 
   config = function()
+    local presets = require 'markview.presets'
+
+    require('markview').setup {
+      preview = {
+        filetypes = { 'markdown', 'norg', 'rmd', 'org', 'vimwiki', 'Avante' },
+      },
+      max_length = 99999,
+      markdown = {
+        headings = presets.headings.glow,
+      },
+    }
+
     require('markview.extras.checkboxes').setup {
       --- Default checkbox state(used when adding checkboxes).
       ---@type string
@@ -42,17 +54,6 @@ return {
     'nvim-tree/nvim-web-devicons',
     'saghen/blink.cmp',
   },
-  opts = function()
-    return {
-      preview = {
-        filetypes = { 'markdown', 'norg', 'rmd', 'org', 'vimwiki', 'Avante' },
-      },
-      max_length = 99999,
-      markdown = {
-        headings = require('markview.presets').headings.glow,
-      },
-    }
-  end,
   keys = {
     {
       '<leader>mt',
