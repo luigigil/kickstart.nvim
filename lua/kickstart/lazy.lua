@@ -137,6 +137,8 @@ require('lazy').setup({
         { '<leader>b', group = '[B]reakpoints' },
         { '<leader>x', group = 'Trouble/Diagnosti[x]' },
         { '<leader>u', group = '[U]tilities' },
+        { '<leader>m', group = '[M]arkdown' },
+        { '<leader>mc', group = '[C]heckbox' },
       },
     },
   },

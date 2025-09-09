@@ -70,8 +70,8 @@ return {
 
       -- Keymaps
       keymaps = {
-        toggle_window = '<leader>td', -- Toggle global todos
-        open_project_todo = '<leader>tD', -- Toggle project-specific todos
+        toggle_window = '<leader>tt', -- Toggle global todos
+        open_project_todo = '<leader>tT', -- Toggle project-specific todos
         new_todo = 'i',
         create_nested_task = '<leader>tn', -- Create nested subtask under current todo
         toggle_todo = 'x',

@@ -61,7 +61,7 @@ return {
         require('markview').commands['toggle']()
       end,
       mode = 'n',
-      desc = '[M]arkview toggle',
+      desc = '[T]oggle',
     },
     {
       '<leader>ms',
@@ -69,19 +69,19 @@ return {
         require('markview').commands['splitToggle']()
       end,
       mode = 'n',
-      desc = '[M]arkview [s]plit toggle',
+      desc = '[S]plit toggle',
     },
     {
       '<leader>mct',
       '<cmd>Checkbox toggle<CR>',
       mode = 'n',
-      desc = '[M]arkdown [c]heckbox [t]oggle',
+      desc = '[T]oggle',
     },
     {
       '<leader>mci',
       '<cmd>Checkbox interactive<CR>',
       mode = 'n',
-      desc = '[M]arkdown [c]heckbox [i]nteractive',
+      desc = '[I]nteractive',
     },
   },
 }
