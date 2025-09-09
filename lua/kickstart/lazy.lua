@@ -822,6 +822,7 @@ require('lazy').setup({
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.conform',
   require 'kickstart.plugins.debug',
+  require 'kickstart.plugins.dooing',
   require 'kickstart.plugins.fugitive',
   require 'kickstart.plugins.gitsigns',
   require 'kickstart.plugins.harpoon',
