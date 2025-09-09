@@ -832,6 +832,7 @@ require('lazy').setup({
   require 'kickstart.plugins.markdown-preview',
   require 'kickstart.plugins.markview',
   require 'kickstart.plugins.nvim-dap-ui',
+  require 'kickstart.plugins.obsidian',
   require 'kickstart.plugins.octo',
   require 'kickstart.plugins.octo-custom',
   require 'kickstart.plugins.oil',
