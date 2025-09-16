@@ -823,6 +823,7 @@ require('lazy').setup({
   --
   require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.conform',
+  -- require 'kickstart.plugins.copilot', let it disabled for now
   require 'kickstart.plugins.debug',
   require 'kickstart.plugins.dooing',
   require 'kickstart.plugins.fugitive',
