@@ -1,6 +1,7 @@
 return {
   'atiladefreitas/dooing',
   config = function()
+    print(vim.fn.stdpath 'data' .. '/dooing_todos.json')
     require('dooing').setup {
       -- Core settings
       save_path = vim.fn.stdpath 'data' .. '/dooing_todos.json',
