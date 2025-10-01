@@ -844,7 +844,6 @@ require('lazy').setup({
   require 'kickstart.plugins.nvim-dap-ui',
   require 'kickstart.plugins.obsidian',
   require 'kickstart.plugins.octo',
-  require 'kickstart.plugins.octo-custom',
   require 'kickstart.plugins.oil',
   require 'kickstart.plugins.sg',
   require 'kickstart.plugins.supermaven',
