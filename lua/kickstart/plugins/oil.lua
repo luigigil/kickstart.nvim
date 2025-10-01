@@ -13,11 +13,5 @@ return {
       mode = 'n',
       desc = 'Oil',
     },
-    {
-      '<leader>us',
-      '<cmd>Oil ' .. vim.env.SECOND_BRAIN .. '<CR>',
-      mode = 'n',
-      desc = 'Vault',
-    },
   },
 }

@@ -139,6 +139,7 @@ require('lazy').setup({
         { '<leader>u', group = '[U]tilities' },
         { '<leader>m', group = '[M]arkdown' },
         { '<leader>mc', group = '[C]heckbox' },
+        { '<leader>v', group = '[V]ault', mode = { 'n' } },
       },
     },
   },

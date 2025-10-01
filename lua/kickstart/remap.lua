@@ -47,3 +47,18 @@ vim.keymap.set('n', '<leader>cx', function()
 end, { desc = 'Make current file executable' })
 
 vim.keymap.set('n', '<leader>rs', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
+
+vim.keymap.set('n', '<leader>vd', function()
+  local daily_note = vim.fn.system 'day'
+  vim.cmd('edit ' .. daily_note)
+end, { desc = '[D]aily Note' })
+
+vim.keymap.set('n', '<leader>vi', '<cmd>Oil ' .. vim.env.SECOND_BRAIN .. '/0-inbox<cr>', { desc = '[I]nbox' })
+vim.keymap.set('n', '<leader>vz', '<cmd>Oil ' .. vim.env.SECOND_BRAIN .. '/00-zettelkasten<cr>', { desc = '[Z]ettelkastens' })
+vim.keymap.set('n', '<leader>vf', '<cmd>Oil ' .. vim.env.SECOND_BRAIN .. '<cr>', { desc = '[F]older' })
+
+vim.keymap.set('n', '<leader>vn', function()
+  local zettel_name = vim.fn.input 'Title: '
+  local zett = vim.system { 'zet', zettel_name }
+  vim.cmd('edit ' .. zett)
+end, { desc = '[New] Zettelkasten' })
