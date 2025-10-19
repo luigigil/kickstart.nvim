@@ -846,8 +846,11 @@ require('lazy').setup({
   require 'kickstart.plugins.octo',
   require 'kickstart.plugins.oil',
   require 'kickstart.plugins.sg',
+  -- require 'kickstart.plugins.snacks',
+  -- require 'kickstart.plugins.sidekick',
   require 'kickstart.plugins.supermaven',
   require 'kickstart.plugins.refactoring',
+  require 'kickstart.plugins.treesitter-textobjects',
   require 'kickstart.plugins.trouble',
   require 'kickstart.plugins.undotree',
 
@@ -855,7 +858,7 @@ require('lazy').setup({
   --    This is the easiest way to modularize your config.
   --
   --  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
-  -- { import = 'custom.plugins' },
+  { import = 'custom.plugins' },
   --
   -- For additional information with loading, sourcing and examples see `:help lazy.nvim-🔌-plugin-spec`
   -- Or use telescope!

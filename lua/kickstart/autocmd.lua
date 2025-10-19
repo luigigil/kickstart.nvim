@@ -23,3 +23,16 @@ vim.api.nvim_create_autocmd({ 'TermOpen' }, {
 -- Load markdown-specific settings
 -- require('kickstart.markdown').setup()
 
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'json',
+  callback = function()
+    vim.opt_local.conceallevel = 0
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'markdown',
+  callback = function()
+    vim.opt_local.conceallevel = 1
+  end,
+})
