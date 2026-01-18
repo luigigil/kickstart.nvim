@@ -815,6 +815,16 @@ require('lazy').setup({
       },
       indent = { enable = true, disable = { 'ruby' } },
     },
+    config = function(_, opts)
+      vim.filetype.add {
+        extension = {
+          gotmpl = 'gotmpl',
+          gohtml = 'gotmpl',
+        },
+      }
+      require('nvim-treesitter.install').prefer_git = true
+      require('nvim-treesitter.configs').setup(opts)
+    end,
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
     --
