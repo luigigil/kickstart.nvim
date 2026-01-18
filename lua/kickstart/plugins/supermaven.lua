@@ -1,6 +1,6 @@
 return {
   'supermaven-inc/supermaven-nvim',
-  cond = vim.env.WORK ~= '1',
+  -- cond = vim.env.WORK ~= '1',
   opts = {
     keymaps = {
       accept_suggestion = '<C-l>',

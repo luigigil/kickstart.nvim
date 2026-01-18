@@ -5,7 +5,7 @@ return {
   cmd = 'Copilot',
   config = function()
     require('copilot').setup {
-      auth_provider_url = 'https://github.cbhq.net/',
+      auth_provider_url = 'https://github.cbhq.net',
     }
   end,
 }

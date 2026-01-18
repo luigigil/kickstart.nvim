@@ -273,6 +273,7 @@ require('lazy').setup({
             '--glob=!*.svg',
           },
           search_dirs = {
+            SECOND_BRAIN,
             SECOND_BRAIN .. '/0-inbox',
             SECOND_BRAIN .. '/00-zettelkasten',
             SECOND_BRAIN .. '/1-projects',

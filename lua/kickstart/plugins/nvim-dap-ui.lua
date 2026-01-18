@@ -12,7 +12,6 @@ return {
       local dap = require 'dap'
       local ui = require 'dapui'
 
-      dap.defaults.fallback.switchbuf = 'usetab,usevisible'
       dap.configurations.go = {
         {
           type = 'go',
