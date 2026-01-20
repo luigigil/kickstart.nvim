@@ -263,7 +263,7 @@ require('lazy').setup({
             '--glob=!**/golang/**',
             '--glob=!**/rustlang/**',
             '--glob=!**/ziglang/**',
-            '--glob=!**/2-areas/music/**',
+            '--glob=!**/**/music/**',
             '--glob=!**/*archive*/**',
             '--glob=!**/node_modules/**',
             '--glob=!**/target/**',
