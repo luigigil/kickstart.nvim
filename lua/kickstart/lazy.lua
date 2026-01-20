@@ -264,6 +264,7 @@ require('lazy').setup({
             '--glob=!**/rustlang/**',
             '--glob=!**/ziglang/**',
             '--glob=!**/2-areas/music/**',
+            '--glob=!**/*archive*/**',
             '--glob=!**/node_modules/**',
             '--glob=!**/target/**',
             '--glob=!**/patches/**',
@@ -272,16 +273,22 @@ require('lazy').setup({
             '--glob=!*.jpeg',
             '--glob=!*.svg',
           },
-          search_dirs = {
-            SECOND_BRAIN,
-            SECOND_BRAIN .. '/0-inbox',
-            SECOND_BRAIN .. '/00-zettelkasten',
-            SECOND_BRAIN .. '/1-projects',
-            SECOND_BRAIN .. '/2-areas',
-            SECOND_BRAIN .. '/3-resources',
-            SECOND_BRAIN .. '/4-work',
-            SECOND_BRAIN .. '/5-archive',
-          },
+          search_dirs = (function()
+            if vim.fn.getenv 'WORK' == 1 then
+              return {
+                SECOND_BRAIN .. '/0-inbox',
+                SECOND_BRAIN .. '/00-zettelkasten',
+                SECOND_BRAIN .. '/2-areas/work/' .. vim.fn.getenv 'WORKNAME',
+              }
+            end
+            return {
+              SECOND_BRAIN .. '/0-inbox',
+              SECOND_BRAIN .. '/00-zettelkasten',
+              SECOND_BRAIN .. '/1-projects',
+              SECOND_BRAIN .. '/2-areas',
+              SECOND_BRAIN .. '/3-resources',
+            }
+          end)(),
         }
       end, { desc = '[S]earch [V]ault' })
     end,
@@ -850,7 +857,7 @@ require('lazy').setup({
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lazygit',
   require 'kickstart.plugins.lualine',
-  require 'kickstart.plugins.markdown-preview',
+  -- require 'kickstart.plugins.markdown-preview', -- it breaks obsidian 🫠
   require 'kickstart.plugins.markview',
   require 'kickstart.plugins.nvim-dap-ui',
   require 'kickstart.plugins.obsidian',
