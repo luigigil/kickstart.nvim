@@ -140,6 +140,7 @@ require('lazy').setup({
         { '<leader>m', group = '[M]arkdown' },
         { '<leader>mc', group = '[C]heckbox' },
         { '<leader>v', group = '[V]ault', mode = { 'n' } },
+        { '<leader>T', group = '[T]odoist', mode = { 'n' } },
       },
     },
   },

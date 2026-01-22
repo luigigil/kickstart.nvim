@@ -6,10 +6,26 @@ return {
   {
     'luigi/todoist.nvim',
     dir = vim.env.HOME .. '/projects/todoist.nvim',
+    dependencies = {
+      'nvim-telescope/telescope.nvim',
+      'nvim-lua/plenary.nvim',
+    },
     config = function()
       require('todoist').setup {
-        some_param = 'this is my param',
-        force_sync = false,
+        -- some_param = 'this is my param',
+        -- force_sync = false,
+        sync_on_load = true,
+        filters = {
+          'today',
+          'tomorrow',
+          'overdue',
+          '@work',
+          '@urgent',
+        },
+        telescope = {
+          layout_strategy = 'vertical',
+          layout_config = { width = 0.8 },
+        },
       }
     end,
   },
