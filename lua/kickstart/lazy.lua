@@ -829,6 +829,12 @@ require('lazy').setup({
           gotmpl = 'gotmpl',
           gohtml = 'gotmpl',
         },
+        pattern = {
+          -- Helm chart templates (files in templates/ directory of helm charts)
+          ['.*/templates/.*%.yaml'] = 'helm',
+          ['.*/templates/.*%.tpl'] = 'helm',
+          ['helmfile.*%.yaml'] = 'helm',
+        },
       }
       require('nvim-treesitter.install').prefer_git = true
       require('nvim-treesitter.configs').setup(opts)
