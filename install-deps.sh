@@ -24,6 +24,7 @@ Usage:
 
 Environment:
   WORK=1   Also install WORK-only tools (Sourcegraph CLI)
+  INSTALL_ZELLIJ=1  On Linux, attempt to install zellij (may require a newer Rust toolchain)
 EOF
 }
 
@@ -213,6 +214,14 @@ if is_linux; then
       return
     fi
     if command -v fdfind >/dev/null 2>&1; then
+      # Prefer a system-wide symlink so tools can find `fd` without PATH tweaks.
+      if command -v sudo >/dev/null 2>&1; then
+        sudo ln -sf "$(command -v fdfind)" /usr/local/bin/fd 2>/dev/null || true
+      fi
+      if command -v fd >/dev/null 2>&1; then
+        return
+      fi
+
       mkdir -p "${HOME}/.local/bin"
       ln -sf "$(command -v fdfind)" "${HOME}/.local/bin/fd"
       echo "Linked fdfind -> ~/.local/bin/fd"
@@ -238,32 +247,6 @@ if is_linux; then
       echo "Installing prettier (npm -g)..."
       sudo npm install -g prettier
     fi
-
-    # stylua is used for lua formatting.
-    if ! command -v stylua >/dev/null 2>&1; then
-      echo "Installing stylua via cargo (rust toolchain)..."
-      require_sudo
-      sudo apt-get install -y cargo
-      cargo install stylua || true
-      if command -v stylua >/dev/null 2>&1; then
-        echo "  OK   stylua"
-      else
-        echo "  WARN stylua (Mason can install it inside Neovim)"
-      fi
-    fi
-
-    # zellij is only needed if you enable sidekick's zellij backend.
-    if ! command -v zellij >/dev/null 2>&1; then
-      echo "Installing zellij via cargo (optional)..."
-      require_sudo
-      sudo apt-get install -y cargo
-      cargo install zellij || true
-      if command -v zellij >/dev/null 2>&1; then
-        echo "  OK   zellij"
-      else
-        echo "  WARN zellij (only required if you enable sidekick)"
-      fi
-    fi
   }
 
   if [[ "$mode" == "install" ]]; then
@@ -280,6 +263,15 @@ if is_linux; then
     fi
     if ! apt_try_install gh; then
       echo "WARN: could not install gh via apt (needed for octo.nvim)."
+    fi
+
+    # Optional: zellij is only needed if you enable sidekick's zellij backend.
+    if [[ "${INSTALL_ZELLIJ:-0}" == "1" ]]; then
+      if ! apt_try_install zellij; then
+        echo "WARN: could not install zellij via apt."
+        echo "NOTE: cargo install zellij may require a newer Rust toolchain (edition2024)."
+        echo "      Consider installing rustup + updating Rust (1.85+ or nightly), then: cargo install zellij"
+      fi
     fi
 
     install_neovim_linux
@@ -339,7 +331,13 @@ for exe in "${FEATURE_EXES[@]}"; do
   if command -v "$exe" >/dev/null 2>&1; then
     echo "  OK   $exe"
   else
-    echo "  WARN $exe (some features may not work)"
+    if [[ "$exe" == "stylua" ]]; then
+      echo "  NOTE stylua (Mason installs this on first nvim start)"
+    elif [[ "$exe" == "zellij" ]]; then
+      echo "  NOTE zellij (only required if you enable sidekick)"
+    else
+      echo "  WARN $exe (some features may not work)"
+    fi
   fi
 done
 
