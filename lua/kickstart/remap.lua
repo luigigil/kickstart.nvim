@@ -59,6 +59,7 @@ vim.keymap.set('n', '<leader>vf', '<cmd>Oil ' .. vim.env.SECOND_BRAIN .. '<cr>',
 
 vim.keymap.set('n', '<leader>vn', function()
   local zettel_name = vim.fn.input 'Title: '
-  local zett = vim.system { 'zet', zettel_name }
-  vim.cmd('edit ' .. zett)
+  local result = vim.system({ 'zet', zettel_name }, { text = true }):wait()
+  local path = vim.trim(result.stdout)
+  vim.cmd.edit(path)
 end, { desc = '[New] Zettelkasten' })

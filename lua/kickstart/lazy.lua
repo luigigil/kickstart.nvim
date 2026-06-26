@@ -141,6 +141,7 @@ require('lazy').setup({
         { '<leader>mc', group = '[C]heckbox' },
         { '<leader>v', group = '[V]ault', mode = { 'n' } },
         { '<leader>T', group = '[T]odoist', mode = { 'n' } },
+        { '<leader>a', group = '[A]i', mode = { 'n' } },
       },
     },
   },
@@ -854,17 +855,18 @@ require('lazy').setup({
   -- NOTE: Next step on your Neovim journey: Add/Configure additional plugins for Kickstart
   --
   require 'kickstart.plugins.autopairs',
+  require 'kickstart.plugins.claudecode',
   require 'kickstart.plugins.conform',
   -- require 'kickstart.plugins.copilot', let it disabled for now
   require 'kickstart.plugins.debug',
-  require 'kickstart.plugins.dooing',
+  -- require 'kickstart.plugins.dooing',
   require 'kickstart.plugins.fugitive',
   require 'kickstart.plugins.gitsigns',
   require 'kickstart.plugins.harpoon',
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lazygit',
   require 'kickstart.plugins.lualine',
-  -- require 'kickstart.plugins.markdown-preview', -- it breaks obsidian 🫠
+  require 'kickstart.plugins.markdown-preview', -- it breaks obsidian 🫠
   require 'kickstart.plugins.markview',
   require 'kickstart.plugins.nvim-dap-ui',
   require 'kickstart.plugins.obsidian',

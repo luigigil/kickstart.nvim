@@ -1,6 +1,17 @@
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
+-- Auto-reload files changed outside Neovim (e.g. Claude Code in auto mode)
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, {
+  group = vim.api.nvim_create_augroup('autoread-checktime', { clear = true }),
+  callback = function()
+    if vim.fn.mode() ~= 'c' then
+      vim.cmd 'checktime'
+    end
+  end,
+})
+
 --  See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
@@ -15,13 +26,6 @@ vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
   pattern = { '.env*' },
   command = 'set filetype=sh',
 })
-
-vim.api.nvim_create_autocmd({ 'TermOpen' }, {
-  command = 'res -15',
-})
-
--- Load markdown-specific settings
--- require('kickstart.markdown').setup()
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'json',
