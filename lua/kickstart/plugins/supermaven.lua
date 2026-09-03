@@ -1,6 +1,8 @@
 return {
   'supermaven-inc/supermaven-nvim',
   -- cond = vim.env.WORK ~= '1',
+  event = 'VimEnter', -- without this, `keys` alone lazy-loads the plugin, so it never
+  -- starts until you press <leader>Ss for the first time in a session
   opts = {
     keymaps = {
       accept_suggestion = '<C-l>',

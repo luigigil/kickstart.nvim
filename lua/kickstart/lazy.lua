@@ -86,6 +86,13 @@ require('lazy').setup({
       -- delay between pressing a key and opening which-key (milliseconds)
       -- this setting is independent of vim.opt.timeoutlen
       delay = 0,
+      -- default <c-d>/<c-u> collide with the global <C-d>zz/<C-u>zz remaps in
+      -- remap.lua: those register real keymaps, so which-key executes them
+      -- (closing the popup) instead of scrolling it. Use unmapped keys instead.
+      keys = {
+        scroll_down = '<c-e>',
+        scroll_up = '<c-y>',
+      },
       icons = {
         -- set icon mappings to true if you have a Nerd Font
         mappings = vim.g.have_nerd_font,
@@ -858,7 +865,8 @@ require('lazy').setup({
   require 'kickstart.plugins.claudecode',
   require 'kickstart.plugins.conform',
   -- require 'kickstart.plugins.copilot', let it disabled for now
-  require 'kickstart.plugins.debug',
+  -- require 'kickstart.plugins.debug', -- superseded by kickstart.plugins.nvim-dap-ui (duplicate F1/F2/F3/F5/F7/<leader>b keymaps otherwise)
+  require 'kickstart.plugins.diffview',
   -- require 'kickstart.plugins.dooing',
   require 'kickstart.plugins.fugitive',
   require 'kickstart.plugins.gitsigns',
